@@ -2,9 +2,9 @@
 # **React Web Application**
 
 ## **Author**  
-Himasha Gallage  
+Himasha Gallage
 Feel free to contact me at gallagehh@gmail.com for any inquiries or assistance.
-
+@𝖺𝗅𝗅 𝗋𝗂𝗀𝗁𝗍𝗌 𝗋𝖾𝗌𝖾𝗋𝗏𝖾𝖽.
 ---
 
 ## **Description**  
@@ -86,7 +86,7 @@ The project is organized as follows:
 ```plaintext
 src/
 ├── components/        # Reusable UI components
-├── pages/             # Page-level components
+├── screens/           # screen-level components
 ├── store/             # Redux store and reducers
 ├── utils/             # Utility functions and enums
 ├── App.js             # Main application component
@@ -94,12 +94,3 @@ src/
 └── styles.css         # Global styles
 ```
 
----
-
-## **License**  
-All Rights Reserved.
-
----
-
-## **Author**  
-Himasha Gallage  
