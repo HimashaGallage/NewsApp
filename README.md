@@ -3,6 +3,7 @@
 
 ## **Author**  
 Himasha Gallage  
+Feel free to contact me at gallagehh@gmail.com for any inquiries or assistance.
 
 ---
 
