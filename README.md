@@ -5,7 +5,6 @@
 Himasha Gallage
 Feel free to contact me at gallagehh@gmail.com for any inquiries or assistance.
 
-@𝖺𝗅𝗅 𝗋𝗂𝗀𝗁𝗍𝗌 𝗋𝖾𝗌𝖾𝗋𝗏𝖾𝖽.
 ---
 
 ## **Description**  
