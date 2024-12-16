@@ -1,34 +1,99 @@
 import React from 'react';
-import { render, screen, waitFor, act } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import { useDispatch, useSelector } from 'react-redux';
 import NewsFeed from './NewsFeed';
-import { fetchNewsList } from '../../services/NewsService';
-import Error from '../../components/shared/Error/Error';
+import { fetchNewsList } from '../../store/reducers/newsReducer';
+import { CATEGORY } from '../../utils/enums';
 
-jest.mock('../../services/NewsService');
+// Mock dependencies
+jest.mock('react-redux', () => ({
+  useDispatch: jest.fn(),
+  useSelector: jest.fn(),
+}));
 
-describe('NewsFeed', () => {
-    const mockNews = [
-        { id: 1, title: 'News 1', reference: 'Ref 1', timestamp: '2023-10-01', bannerImage: 'https://example.com/image1.jpg' },
-        { id: 2, title: 'News 2', reference: 'Ref 2', timestamp: '2023-10-02', bannerImage: 'https://example.com/image2.jpg' },
+jest.mock('../../store/reducers/newsReducer', () => ({
+  fetchNewsList: jest.fn(),
+}));
+
+jest.mock('../../components/shared/Loader/Loader', () => () => <div>Loading...</div>);
+jest.mock('../../components/shared/Error/Error', () => () => <div>Error occurred</div>);
+jest.mock('../../components/NewsCard/NewsCard', () => ({ newsItem }) => (
+  <div data-testid="news-card">{newsItem.title}</div>
+));
+
+describe('NewsFeed Component', () => {
+  const mockDispatch = jest.fn();
+
+  beforeEach(() => {
+    jest.clearAllMocks();
+    useDispatch.mockReturnValue(mockDispatch);
+  });
+
+  it('should dispatch fetchNewsList with CATEGORY.GENERAL on mount', () => {
+    useSelector.mockReturnValue({
+      newsList: [],
+      loading: false,
+      error: null,
+    });
+
+    render(<NewsFeed />);
+
+    expect(mockDispatch).toHaveBeenCalledWith(fetchNewsList(CATEGORY.GENERAL));
+  });
+
+  it('should display the loading component when loading is true', () => {
+    useSelector.mockReturnValue({
+      newsList: [],
+      loading: true,
+      error: null,
+    });
+
+    render(<NewsFeed />);
+
+    expect(screen.getByText('Loading...')).toBeInTheDocument();
+  });
+
+  it('should display the error component when error is present', () => {
+    useSelector.mockReturnValue({
+      newsList: [],
+      loading: false,
+      error: 'Error message',
+    });
+
+    render(<NewsFeed />);
+
+    expect(screen.getByText('Error occurred')).toBeInTheDocument();
+  });
+
+  it('should display news cards when newsList is populated', () => {
+    const mockNewsList = [
+      { id: 1, title: 'News 1' },
+      { id: 2, title: 'News 2' },
     ];
 
-    beforeEach(() => {
-        jest.clearAllMocks();
+    useSelector.mockReturnValue({
+      newsList: mockNewsList,
+      loading: false,
+      error: null,
     });
 
-    test('renders news cards when fetch is successful', async () => {
-        fetchNewsList.mockResolvedValueOnce(mockNews);
-        
-        // Wrap the render call in act
-        await act(async () => {
-            render(<NewsFeed />);
-        });
-        
-        // Wait for loading to finish
-        await waitFor(() => expect(screen.queryByText(/Loading/i)).not.toBeInTheDocument());
-        
-        // Check if news cards are rendered
-        expect(screen.getByText('News 1')).toBeInTheDocument();
-        expect(screen.getByText('News 2')).toBeInTheDocument();
+    render(<NewsFeed />);
+
+    const newsCards = screen.getAllByTestId('news-card');
+    expect(newsCards).toHaveLength(2);
+    expect(newsCards[0]).toHaveTextContent('News 1');
+    expect(newsCards[1]).toHaveTextContent('News 2');
+  });
+
+  it('should not display news cards when newsList is empty', () => {
+    useSelector.mockReturnValue({
+      newsList: [],
+      loading: false,
+      error: null,
     });
+
+    render(<NewsFeed />);
+
+    expect(screen.queryByTestId('news-card')).toBeNull();
+  });
 });

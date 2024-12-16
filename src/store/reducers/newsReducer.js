@@ -27,14 +27,15 @@ const newsSlice = createSlice({
 
 export const { fetchNewsRequest, fetchNewsSuccess, fetchNewsFailure } = newsSlice.actions;
 
-export const fetchNewsList = (category) => {
+export const fetchNewsList = (newsCategory) => {
   return async (dispatch) => {
     dispatch(fetchNewsRequest());
     try {
-      const newsArray = await NewsService.fetchMarketNews(category);
+      const newsArray = await NewsService.fetchMarketNews(newsCategory);
       dispatch(fetchNewsSuccess(newsArray));
     } catch (error) {
-      dispatch(fetchNewsFailure(error.message));
+      // Dispatch the error message
+      dispatch(fetchNewsFailure(error.message)); 
     }
   };
 };
