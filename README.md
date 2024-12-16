@@ -2,7 +2,6 @@
 
 ## Author
 Himasha Gallage
-16-12-24
 
 ## All Rights Reserved
 
@@ -26,5 +25,5 @@ To get started with this project, follow these steps:
 5. **Access the Project**:Once the server is running, you can access the project in your web browser at:
     (http://localhost:3000)
 
-6. **To run test cases**:Once the server is running, you can access the project in your web browser at:
+6. **To run test cases**:
     npm test
