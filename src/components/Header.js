@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from '../assets/img/logo-svg.svg';
-import { strings } from '../constants';
+import { strings } from '../utils/constants';
 
 const Header = () => {
     return (
@@ -9,7 +9,7 @@ const Header = () => {
                 <img src={logo} alt="Logo" className="logo w-3/4" />
             </div>
             <div className="w-full text-left">
-                <h1 className="text-3xl lg:text-5xl font-bold text-secondary">{strings.news}</h1>
+                <h1 className="text-3xl lg:text-5xl font-bold text-secondary">{strings.NEWS}</h1>
             </div>
         </header>
     );

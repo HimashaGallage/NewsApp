@@ -11,14 +11,14 @@ describe('fetchNewsList', () => {
 
   test('fetches successfully data from an API', async () => {
     const newsData = { news: [{ id: 1, title: 'News Title 1' }] };
-    mock.onGet(process.env.REACT_APP_API_URL).reply(200, newsData);
+    mock.onGet(process.env.API_URL).reply(200, newsData);
     const result = await fetchNewsList();
     expect(result).toEqual(newsData.news);
 
   });
 
   test('fetches erroneously data from an API', async () => {
-    mock.onGet(process.env.REACT_APP_API_URL).reply(404);
+    mock.onGet(process.env.API_URL).reply(404);
     await expect(fetchNewsList()).rejects.toThrow('Request failed with status code 404');
   });
 });
