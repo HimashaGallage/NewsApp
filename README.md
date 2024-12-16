@@ -1,30 +1,105 @@
-# React web assingment for Blott Studio
 
-## Author
-Himasha Gallage
-16-12-24
+# **React Web Application**
 
-## All Rights Reserved
+## **Author**  
+Himasha Gallage  
+Feel free to contact me at gallagehh@gmail.com for any inquiries or assistance.
 
-## Description
-This project is a web application built using React, axios and Tailwind CSS. It demonstrates how to create a responsive and modern user interface while fetching mock data from an API.
+---
 
-## Getting Started
-To get started with this project, follow these steps:
+## **Description**  
+This project is a web application built using **React**, **Axios**, and **Tailwind CSS**. It demonstrates how to create a responsive and modern user interface while fetching mock data from an API.
 
-1. **Open Terminal**: Launch your terminal application.
-2. **Navigate to Project Folder**: Use the `cd` command to change to your project directory. For example:
+---
+
+## **Features**  
+- Responsive design using Tailwind CSS.  
+- API integration using Axios for seamless data fetching.  
+- Modern UI components for a clean and interactive user experience.  
+- Built-in testing capabilities to ensure reliability and robustness.  
+
+---
+
+## **Getting Started**
+
+### **Prerequisites**  
+Ensure you have the following installed on your system:  
+- **Node.js** (v14 or later)  
+- **npm** (v6 or later)  
+
+---
+
+### **Installation Steps**  
+
+1. **Open Terminal:**  
+   Launch your terminal or command-line application.
+
+2. **Clone the Repository:**  
+   Clone the project repository from GitHub:
+   ```bash
+   git clone https://github.com/your-username/your-repository.git
+   ```
+
+3. **Navigate to the Project Folder:**  
+   Use the `cd` command to move into the project directory:
    ```bash
    cd path/to/your/project
+   ```
 
-3. **Install Dependencies**:Run the following command to install the necessary packages:
-    npm install
+4. **Install Dependencies:**  
+   Install the necessary packages using npm:
+   ```bash
+   npm install
+   ```
 
-4. **Run the Project**:Start the development server with:
-    npm start
+5. **Run the Project:**  
+   Start the development server:
+   ```bash
+   npm start
+   ```
 
-5. **Access the Project**:Once the server is running, you can access the project in your web browser at:
-    (http://localhost:3000)
+6. **Access the Project:**  
+   Open your browser and go to:
+   [http://localhost:3000](http://localhost:3000)
 
-6. **To run test cases**:Once the server is running, you can access the project in your web browser at:
-    npm test
+---
+
+## **Testing**  
+
+To run the test cases for the application:  
+```bash
+npm test
+```  
+The test runner will execute all tests and display the results in the terminal.
+
+---
+
+## **Technologies Used**  
+- **React**: A JavaScript library for building user interfaces.  
+- **Axios**: Promise-based HTTP client for fetching API data.  
+- **Tailwind CSS**: Utility-first CSS framework for rapid UI development.
+
+---
+
+## **Folder Structure**  
+The project is organized as follows:  
+```plaintext
+src/
+├── components/        # Reusable UI components
+├── pages/             # Page-level components
+├── store/             # Redux store and reducers
+├── utils/             # Utility functions and enums
+├── App.js             # Main application component
+├── index.js           # Entry point
+└── styles.css         # Global styles
+```
+
+---
+
+## **License**  
+All Rights Reserved.
+
+---
+
+## **Author**  
+Himasha Gallage  
